@@ -1,4 +1,5 @@
 package pl.gruchotki.invoicesIntegrator.entity;
 
-public class Item {
+public enum VatRateType {
+    PRC, ZW
 }
