@@ -5,8 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -21,33 +19,30 @@ public class ItemEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-    private Double stawkaVat;
-    private Integer ilosc;
-    private Double cenaJednostkowa;
+    private Double vatRate;
+    private Integer quantity;
+    private Double unitPrice;
 
-    @Min(1)
-    @Max(300)
-    private String nazwaPelna;
-    private String jednostka = "sztuk";
+    //    @Min(1)
+//    @Max(300)
+    private String fullName;
+    private String unit;
 
     @Enumerated
-    private VatRateType typStawkiVat;
+    private VatRateType vatRateType;
 
     @ManyToOne
     @JoinColumn(name = "invoice_id")
     private InvoiceEntity invoice;
 
-    public ItemEntity(Double stawkaVat,
-                      Integer ilosc,
-                      Double cenaJednostkowa,
-                      String nazwaPelna,
-                      String jednostka,
-                      VatRateType typStawkiVat) {
-        this.stawkaVat = stawkaVat;
-        this.ilosc = ilosc;
-        this.cenaJednostkowa = cenaJednostkowa;
-        this.nazwaPelna = nazwaPelna;
-        this.jednostka = jednostka;
-        this.typStawkiVat = typStawkiVat;
+    public ItemEntity(Long id, Double vatRate, Integer quantity, Double unitPrice, String fullName, String unit, VatRateType vatRateType, InvoiceEntity invoice) {
+        this.id = id;
+        this.vatRate = vatRate;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.fullName = fullName;
+        this.unit = unit;
+        this.vatRateType = vatRateType;
+        this.invoice = invoice;
     }
 }

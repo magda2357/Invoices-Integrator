@@ -24,45 +24,46 @@ public class InvoiceEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-    private Double zaplacono;
-    private Double zaplaconoNaDokumencie;
+    private Double payment;
+    private Double paymentOnDocument;
 
     @Enumerated
-    private TaxBase liczOd;
+    private TaxBase taxBase;
 
     @Max(28)
-    private String numerKontaBankowego;
+    private String bankingAccountNumber;
 //    >= data sprzedaży;
 //>= data wystawienia faktury wcześniejszej;
 //<= 15 dzień miesiąca następnego względem daty sprzedaży
 
-    private LocalDate dataWystawienia;
+    private LocalDate issueDate;
 
     @Max(50)
-    private final String miejsceWystawienia = "Budy Michałowskie";
+    private String issuePlace;
 
     @Enumerated
-    private SaleDateFormat formatDatySprzedazy;
-    private LocalDate terminPlatnosci;
+    private SaleDateFormat saleDateFormat;
+    private LocalDate paymentDate;
     //    >= data sprzedaży
-    private LocalDate dataSprzedazy;
+    private LocalDate saleDate;
 
     @Enumerated(STRING)
-    private PaymentType sposobZaplaty;
-    private String nazwaSeriiNumeracji;
-    private String nazwaSzablonu;
+    private PaymentType paymentType;
+    private String numberingSeriesName;
+    private String templateName;
 
     @Enumerated
-    private ReceiverSignatureType rodzajPodpisuOdbiorcy;
-    private String uwagi;
-    private Integer widocznyNumerGiosWidocznyNumerBdo;
-    private String numer;
-    private Integer NIPKontrahenta;
-    private String nazwa;
-    private String NIP;
-    private String ulica;
-    private String kodPocztowy;
-    private String miejscowosc;
+    private ReceiverSignatureType receiverSignatureType;
+    private String comments;
+    private Integer visibleGiosNumberBdoNumber;
+    private String number;
+    private Integer buyerNip;
+    private String name;
+    private String nip;
+    private String street;
+    private String postalCode;
+    private String city;
+
 
     @OneToMany(
             mappedBy = "invoice",
@@ -70,47 +71,30 @@ public class InvoiceEntity {
     )
     private List<ItemEntity> items = new ArrayList<>();
 
-    public InvoiceEntity(Double zaplacono,
-                         Double zaplaconoNaDokumencie,
-                         TaxBase liczOd,
-                         String numerKontaBankowego,
-                         LocalDate dataWystawienia,
-                         SaleDateFormat formatDatySprzedazy,
-                         LocalDate terminPlatnosci,
-                         LocalDate dataSprzedazy,
-                         PaymentType sposobZaplaty,
-                         String nazwaSeriiNumeracji,
-                         String nazwaSzablonu,
-                         ReceiverSignatureType rodzajPodpisuOdbiorcy,
-                         String uwagi,
-                         Integer widocznyNumerGiosWidocznyNumerBdo,
-                         String numer,
-                         Integer NIPKontrahenta,
-                         String nazwa,
-                         String NIP,
-                         String ulica,
-                         String kodPocztowy,
-                         String miejscowosc) {
-        this.zaplacono = zaplacono;
-        this.zaplaconoNaDokumencie = zaplaconoNaDokumencie;
-        this.liczOd = liczOd;
-        this.numerKontaBankowego = numerKontaBankowego;
-        this.dataWystawienia = dataWystawienia;
-        this.formatDatySprzedazy = formatDatySprzedazy;
-        this.terminPlatnosci = terminPlatnosci;
-        this.dataSprzedazy = dataSprzedazy;
-        this.sposobZaplaty = sposobZaplaty;
-        this.nazwaSeriiNumeracji = nazwaSeriiNumeracji;
-        this.nazwaSzablonu = nazwaSzablonu;
-        this.rodzajPodpisuOdbiorcy = rodzajPodpisuOdbiorcy;
-        this.uwagi = uwagi;
-        this.widocznyNumerGiosWidocznyNumerBdo = widocznyNumerGiosWidocznyNumerBdo;
-        this.numer = numer;
-        this.NIPKontrahenta = NIPKontrahenta;
-        this.nazwa = nazwa;
-        this.NIP = NIP;
-        this.ulica = ulica;
-        this.kodPocztowy = kodPocztowy;
-        this.miejscowosc = miejscowosc;
+    public InvoiceEntity(Long id, Double payment, Double paymentOnDocument, TaxBase taxBase, String bankingAccountNumber, LocalDate issueDate, String issuePlace, SaleDateFormat saleDateFormat, LocalDate paymentDate, LocalDate saleDate, PaymentType paymentType, String numberingSeriesName, String templateName, ReceiverSignatureType receiverSignatureType, String comments, Integer visibleGiosNumberBdoNumber, String number, Integer buyerNip, String name, String nip, String street, String postalCode, String city, List<ItemEntity> items) {
+        this.id = id;
+        this.payment = payment;
+        this.paymentOnDocument = paymentOnDocument;
+        this.taxBase = taxBase;
+        this.bankingAccountNumber = bankingAccountNumber;
+        this.issueDate = issueDate;
+        this.issuePlace = issuePlace;
+        this.saleDateFormat = saleDateFormat;
+        this.paymentDate = paymentDate;
+        this.saleDate = saleDate;
+        this.paymentType = paymentType;
+        this.numberingSeriesName = numberingSeriesName;
+        this.templateName = templateName;
+        this.receiverSignatureType = receiverSignatureType;
+        this.comments = comments;
+        this.visibleGiosNumberBdoNumber = visibleGiosNumberBdoNumber;
+        this.number = number;
+        this.buyerNip = buyerNip;
+        this.name = name;
+        this.nip = nip;
+        this.street = street;
+        this.postalCode = postalCode;
+        this.city = city;
+        this.items = items;
     }
 }
