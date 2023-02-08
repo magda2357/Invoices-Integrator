@@ -57,6 +57,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>2.11.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -73,6 +78,34 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.14.0</version>
+                <executions>
+                    <execution>
+                        <id>invoices-generate</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <arg>-XautoNameResolution</arg>
+                            </args>
+                            <generatePackage>pl.invoicesIntegrator</generatePackage>
+                            <generateDirectory>${project.build.directory}/generated-sources/xjc-invoices
+                            </generateDirectory>
+                            <schemas>
+                                <schema>
+                                    <url>${project.baseUri}/src/main/resources/xsd/input.xsd</url>
+                                </schema>
+                            </schemas>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
         </plugins>
     </build>
 
