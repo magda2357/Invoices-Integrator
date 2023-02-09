@@ -14,7 +14,7 @@
     <name>invoicesIntegrator</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -97,7 +97,7 @@
                             </generateDirectory>
                             <schemas>
                                 <schema>
-                                    <url>${project.baseUri}/src/main/resources/xsd/input.xsd</url>
+                                    <url>${project.baseUri}/src/main/resources/xsd/faktury.xsd</url>
                                 </schema>
                             </schemas>
                         </configuration>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Rodzaj" type="xs:string"/>
+  <xs:element name="Wartosc">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="38.88"/>
+        <xs:enumeration value="207.90"/>
+        <xs:enumeration value="9.14"/>
+        <xs:enumeration value="48.90"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="SumaNetto">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="169.03"/>
+        <xs:enumeration value="39.76"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="Stawka">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Rodzaj"/>
+        <xs:element ref="Wartosc"/>
+        <xs:element ref="SumaNetto"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Nazwa">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="TARNAWA Wóz strażacki z klocków mały - drewniany samochód zabawka
+                "/>
+        <xs:enumeration value="Koszty wysyłki: Paczkomaty InPost"/>
+        <xs:enumeration value="Justyna Wawro"/>
+        <xs:enumeration value="TARNAWA Sznurowany guzik"/>
+        <xs:enumeration value="Ewa Godlewska-Stalka"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="Symbol" type="xs:string"/>
+  <xs:element name="CenaNetto">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="80.49"/>
+        <xs:enumeration value="8.05"/>
+        <xs:enumeration value="31.71"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="CenaBrutto">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="99.00"/>
+        <xs:enumeration value="9.90"/>
+        <xs:enumeration value="39.00"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="CenaZakupu">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="65.07"/>
+        <xs:enumeration value="0.00"/>
+        <xs:enumeration value="14.17"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="Ilosc">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="2.000"/>
+        <xs:enumeration value="1.000"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="VAT">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="Stawka" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Rabat" type="xs:string"/>
+  <xs:element name="WartoscNetto">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="160.98"/>
+        <xs:enumeration value="8.05"/>
+        <xs:enumeration value="31.71"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="WartoscBrutto">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="198.00"/>
+        <xs:enumeration value=""/>
+        <xs:enumeration value="9.90"/>
+        <xs:enumeration value="39.00"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="EAN" type="xs:string"/>
+  <xs:element name="Produkt">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="Nazwa"/>
+        <xs:element ref="Symbol"/>
+        <xs:element ref="CenaNetto"/>
+        <xs:element ref="CenaBrutto"/>
+        <xs:element ref="CenaZakupu"/>
+        <xs:element ref="Ilosc"/>
+        <xs:element ref="VAT"/>
+        <xs:element ref="Rabat"/>
+        <xs:element ref="WartoscNetto"/>
+        <xs:element ref="WartoscBrutto"/>
+        <xs:element ref="EAN"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumerDokumentu">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="FV/GR/1/2022"/>
+        <xs:enumeration value="FV/GR/2/2022"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="Miasto">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Kraków"/>
+        <xs:enumeration value="Mysłowice"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="KodPocztowy">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="31-216"/>
+        <xs:enumeration value="41-412"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="Adres">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Solskiego 11 12"/>
+        <xs:enumeration value="Korfantego 9/9"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="NIP" type="xs:string"/>
+  <xs:element name="MetodaPlatnosci" type="xs:string"/>
+  <xs:element name="DataWystawienia">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="2022-11-15"/>
+        <xs:enumeration value="2022-11-16"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="DataSprzedazy">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="2022-11-15"/>
+        <xs:enumeration value="2022-11-16"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="TerminPlatnosci">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="2022-11-15"/>
+        <xs:enumeration value="2022-11-16"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="Zaplacono">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="207.90"/>
+        <xs:enumeration value="48.90"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="Waluta" type="xs:string"/>
+  <xs:element name="Kurs" type="xs:string"/>
+  <xs:element name="NumerZamowienia">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="1"/>
+        <xs:enumeration value="5"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="DodatkoweInformacje" type="xs:string"/>
+  <xs:element name="ListPrzewozowy" type="xs:string"/>
+  <xs:element name="Produkty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Produkt" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="faktura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="NumerDokumentu"/>
+        <xs:element ref="Nazwa"/>
+        <xs:element ref="Miasto"/>
+        <xs:element ref="KodPocztowy"/>
+        <xs:element ref="Adres"/>
+        <xs:element ref="NIP"/>
+        <xs:element ref="MetodaPlatnosci"/>
+        <xs:element ref="DataWystawienia"/>
+        <xs:element ref="DataSprzedazy"/>
+        <xs:element ref="TerminPlatnosci"/>
+        <xs:element ref="Zaplacono"/>
+        <xs:element ref="Wartosc"/>
+        <xs:element ref="Waluta"/>
+        <xs:element ref="Kurs"/>
+        <xs:element ref="NumerZamowienia"/>
+        <xs:element ref="DodatkoweInformacje"/>
+        <xs:element ref="ListPrzewozowy"/>
+        <xs:element ref="VAT"/>
+        <xs:element ref="Produkty"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="faktury">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="faktura" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

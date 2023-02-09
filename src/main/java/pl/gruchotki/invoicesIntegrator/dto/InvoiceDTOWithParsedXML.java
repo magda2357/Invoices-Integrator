@@ -7,7 +7,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import pl.invoicesIntegrator.Faktury;
+//import pl.invoicesIntegrator.Faktury;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -27,7 +27,7 @@ public class InvoiceDTOWithParsedXML {
         XmlMapper xmlMapper = (XmlMapper) new XmlMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 .configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
         
-        Faktury fakturyType = xmlMapper.readValue(xmlFile, Faktury.class);
+//        Faktury fakturyType = xmlMapper.readValue(xmlFile, Faktury.class);
     }
 
     private static List<ItemDtoRequest> parseInvoicesXML() throws ParserConfigurationException, SAXException, IOException {
