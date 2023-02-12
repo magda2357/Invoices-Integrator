@@ -6,6 +6,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+import java.math.BigDecimal;
+
+import static javax.persistence.EnumType.STRING;
 import static javax.persistence.GenerationType.IDENTITY;
 
 
@@ -21,21 +24,21 @@ public class ItemEntity {
     private Long id;
     private Double vatRate;
     private Integer quantity;
-    private Double unitPrice;
+    private BigDecimal unitPrice;
 
     //    @Min(1)
 //    @Max(300)
     private String fullName;
     private String unit;
 
-    @Enumerated
+    @Enumerated(STRING)
     private VatRateType vatRateType;
 
     @ManyToOne
     @JoinColumn(name = "invoice_id")
     private InvoiceEntity invoice;
 
-    public ItemEntity(Long id, Double vatRate, Integer quantity, Double unitPrice, String fullName, String unit, VatRateType vatRateType, InvoiceEntity invoice) {
+    public ItemEntity(Long id, Double vatRate, Integer quantity, BigDecimal unitPrice, String fullName, String unit, VatRateType vatRateType, InvoiceEntity invoice) {
         this.id = id;
         this.vatRate = vatRate;
         this.quantity = quantity;

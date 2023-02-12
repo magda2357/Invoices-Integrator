@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +25,10 @@ public class InvoiceEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-    private Double payment;
-    private Double paymentOnDocument;
+    private BigDecimal payment;
+    private BigDecimal paymentOnDocument;
 
-    @Enumerated
+    @Enumerated(STRING)
     private TaxBase taxBase;
 
     @Max(28)
@@ -41,7 +42,7 @@ public class InvoiceEntity {
     @Max(50)
     private String issuePlace;
 
-    @Enumerated
+    @Enumerated(STRING)
     private SaleDateFormat saleDateFormat;
     private LocalDate paymentDate;
     //    >= data sprzedaży
@@ -52,12 +53,12 @@ public class InvoiceEntity {
     private String numberingSeriesName;
     private String templateName;
 
-    @Enumerated
+    @Enumerated(STRING)
     private ReceiverSignatureType receiverSignatureType;
     private String comments;
     private Integer visibleGiosNumberBdoNumber;
     private String number;
-    private Integer buyerNip;
+    private String buyerNip;
     private String name;
     private String nip;
     private String street;
@@ -71,7 +72,7 @@ public class InvoiceEntity {
     )
     private List<ItemEntity> items = new ArrayList<>();
 
-    public InvoiceEntity(Long id, Double payment, Double paymentOnDocument, TaxBase taxBase, String bankingAccountNumber, LocalDate issueDate, String issuePlace, SaleDateFormat saleDateFormat, LocalDate paymentDate, LocalDate saleDate, PaymentType paymentType, String numberingSeriesName, String templateName, ReceiverSignatureType receiverSignatureType, String comments, Integer visibleGiosNumberBdoNumber, String number, Integer buyerNip, String name, String nip, String street, String postalCode, String city, List<ItemEntity> items) {
+    public InvoiceEntity(Long id, BigDecimal payment, BigDecimal paymentOnDocument, TaxBase taxBase, String bankingAccountNumber, LocalDate issueDate, String issuePlace, SaleDateFormat saleDateFormat, LocalDate paymentDate, LocalDate saleDate, PaymentType paymentType, String numberingSeriesName, String templateName, ReceiverSignatureType receiverSignatureType, String comments, Integer visibleGiosNumberBdoNumber, String number, String buyerNip, String name, String nip, String street, String postalCode, String city, List<ItemEntity> items) {
         this.id = id;
         this.payment = payment;
         this.paymentOnDocument = paymentOnDocument;
