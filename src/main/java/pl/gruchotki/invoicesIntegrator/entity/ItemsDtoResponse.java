@@ -1,7 +1,7 @@
-package pl.gruchotki.invoicesIntegrator.dto;
+package pl.gruchotki.invoicesIntegrator.entity;
 
 import lombok.Getter;
-import pl.gruchotki.invoicesIntegrator.entity.ItemEntity;
+import pl.gruchotki.invoicesIntegrator.dto.ItemDtoResponse;
 
 import java.util.List;
 
@@ -15,6 +15,5 @@ public class ItemsDtoResponse {
         this.items = items.stream()
                 .map(ItemDtoResponse::new)
                 .collect(toList());
-
     }
 }

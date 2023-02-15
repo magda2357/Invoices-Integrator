@@ -58,13 +58,6 @@ public class InvoiceEntity {
     private String comments;
     private Integer visibleGiosNumberBdoNumber;
     private String number;
-    private String buyerNip;
-    private String name;
-    private String nip;
-    private String street;
-    private String postalCode;
-    private String city;
-
 
     @OneToMany(
             mappedBy = "invoice",
@@ -72,7 +65,32 @@ public class InvoiceEntity {
     )
     private List<ItemEntity> items = new ArrayList<>();
 
-    public InvoiceEntity(Long id, BigDecimal payment, BigDecimal paymentOnDocument, TaxBase taxBase, String bankingAccountNumber, LocalDate issueDate, String issuePlace, SaleDateFormat saleDateFormat, LocalDate paymentDate, LocalDate saleDate, PaymentType paymentType, String numberingSeriesName, String templateName, ReceiverSignatureType receiverSignatureType, String comments, Integer visibleGiosNumberBdoNumber, String number, String buyerNip, String name, String nip, String street, String postalCode, String city, List<ItemEntity> items) {
+    @OneToOne(
+            mappedBy = "invoice",
+            cascade = ALL
+    )
+    private ClientEntity client = new ClientEntity();
+
+    public InvoiceEntity(
+            Long id,
+            BigDecimal payment,
+            BigDecimal paymentOnDocument,
+            TaxBase taxBase,
+            String bankingAccountNumber,
+            LocalDate issueDate,
+            String issuePlace,
+            SaleDateFormat saleDateFormat,
+            LocalDate paymentDate,
+            LocalDate saleDate,
+            PaymentType paymentType,
+            String numberingSeriesName,
+            String templateName,
+            ReceiverSignatureType receiverSignatureType,
+            String comments,
+            Integer visibleGiosNumberBdoNumber,
+            String number,
+            List<ItemEntity> items,
+            ClientEntity client) {
         this.id = id;
         this.payment = payment;
         this.paymentOnDocument = paymentOnDocument;
@@ -90,12 +108,7 @@ public class InvoiceEntity {
         this.comments = comments;
         this.visibleGiosNumberBdoNumber = visibleGiosNumberBdoNumber;
         this.number = number;
-        this.buyerNip = buyerNip;
-        this.name = name;
-        this.nip = nip;
-        this.street = street;
-        this.postalCode = postalCode;
-        this.city = city;
         this.items = items;
+        this.client = client;
     }
 }
