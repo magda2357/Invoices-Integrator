@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
@@ -13,8 +14,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class InvoiceDtoRequest {
     private String number;
-    private Double payment;
-    private Double paymentOnDocument;
+    private BigDecimal payment;
+    private BigDecimal paymentOnDocument;
     private LocalDate issueDate;
     private LocalDate paymentDate;
     private LocalDate saleDate;
@@ -22,10 +23,4 @@ public class InvoiceDtoRequest {
     private String numberingSeriesName;
     private String templateName;
     private String comments;
-    private String buyerNip;
-    private String name;
-    private String nip;
-    private String street;
-    private String postalCode;
-    private String city;
 }

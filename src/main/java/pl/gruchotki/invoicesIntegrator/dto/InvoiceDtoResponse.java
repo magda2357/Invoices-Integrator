@@ -25,7 +25,7 @@ public class InvoiceDtoResponse {
     private List<ItemDtoResponse> items;
     private List<ClientDtoResponse> clients;
 
-    public InvoiceDtoResponse(InvoiceEntity invoice, List<ItemEntity> items) {
+    public InvoiceDtoResponse(InvoiceEntity invoice, List<ItemDtoResponse> items, List<ClientDtoResponse> clients) {
         this.taxBase=invoice.getTaxBase();
         this.bankingAccountNumber=invoice.getBankingAccountNumber();
         this.issueDate=invoice.getIssueDate();
@@ -40,8 +40,7 @@ public class InvoiceDtoResponse {
         this.comments=invoice.getComments();
         this.visibleGiosNumberBdoNumber=invoice.getVisibleGiosNumberBdoNumber();
         this.number=invoice.getNumber();
-//        this.items=items.;
-////        this.client=invoice.getClient();
-
+        this.items=items;
+        this.clients = clients;
     }
 }
