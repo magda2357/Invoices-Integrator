@@ -1,13 +1,10 @@
 package pl.gruchotki.invoicesIntegrator.dto;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import pl.invoicesIntegrator.Faktura;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,12 +16,15 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InvoiceDTOWithParsedXML {
+public class DTOWithParsedXML {
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
         List<InvoiceDtoRequest> invoices = parseInvoicesXML();
         List<ItemDtoRequest> items = parseItemsXML();
         List<ClientDtoRequest> clients = parseClientsXML();
 
+        System.out.println(invoices.size());
+        System.out.println(items.size());
+        System.out.println(clients.size());
 
 //        File xmlFile = new File("src/main/resources/input.xml");
 //
@@ -48,7 +48,7 @@ public class InvoiceDTOWithParsedXML {
         Document document = builder.parse(xmlFile);
         document.getDocumentElement().normalize();
 
-        NodeList nList = document.getElementsByTagName("Faktura");
+        NodeList nList = document.getElementsByTagName("faktura");
         for (int temp = 0; temp < nList.getLength(); temp++) {
             Node node = nList.item(temp);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
@@ -64,7 +64,7 @@ public class InvoiceDTOWithParsedXML {
                 invoice.setPaymentType("ELE");
                 invoice.setNumberingSeriesName("default");
                 invoice.setTemplateName("xxx");
-                invoice.setComments(eElement.getElementsByTagName("DodatkoweInformacje").item(0).getTextContent()+" "+
+                invoice.setComments(eElement.getElementsByTagName("DodatkoweInformacje").item(0).getTextContent() + " " +
                         eElement.getElementsByTagName("ListPrzewozowy").item(0).getTextContent());
                 invoices.add(invoice);
             }
@@ -116,7 +116,7 @@ public class InvoiceDTOWithParsedXML {
         Document document = builder.parse(xmlFile);
         document.getDocumentElement().normalize();
 
-        NodeList nList = document.getElementsByTagName("Faktura");
+        NodeList nList = document.getElementsByTagName("faktura");
         for (int temp = 0; temp < nList.getLength(); temp++) {
             Node node = nList.item(temp);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
