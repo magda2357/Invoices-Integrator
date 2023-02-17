@@ -19,8 +19,5 @@ public class InvoiceDtoRequest {
     private LocalDate issueDate;
     private LocalDate paymentDate;
     private LocalDate saleDate;
-    private String paymentType;
-    private String numberingSeriesName;
-    private String templateName;
     private String comments;
 }

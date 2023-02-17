@@ -15,6 +15,6 @@ CREATE TABLE TestDB.Invoices.invoice
     template_name                  VARCHAR(50),
     receiver_signature_type        VARCHAR(3) NOT NULL,
     comments                       VARCHAR(255),
-    visible_gios_number_bdo_number INTEGER,
+    visible_gios_number_bdo_number VARCHAR(30),
     number                         VARCHAR(30) NOT NULL
 );

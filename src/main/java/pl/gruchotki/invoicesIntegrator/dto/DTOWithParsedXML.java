@@ -18,11 +18,11 @@ import java.util.List;
 
 public class DTOWithParsedXML {
     public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-        List<InvoiceDtoRequest> invoices = parseInvoicesXML();
+//        List<InvoiceDtoRequest> invoices = parseInvoicesXML();
         List<ItemDtoRequest> items = parseItemsXML();
         List<ClientDtoRequest> clients = parseClientsXML();
 
-        System.out.println(invoices.size());
+//        System.out.println(invoices.size());
         System.out.println(items.size());
         System.out.println(clients.size());
 
@@ -36,9 +36,8 @@ public class DTOWithParsedXML {
 //        System.out.println(fakturyType.getDataSprzedazy());
     }
 
-    private static List<InvoiceDtoRequest> parseInvoicesXML()
+    public static List<InvoiceDtoRequest> parseInvoicesXML(File xmlFile)
             throws ParserConfigurationException, SAXException, IOException {
-        File xmlFile = new File("src/main/resources/input.xml");
 
         List<InvoiceDtoRequest> invoices = new ArrayList<>();
         InvoiceDtoRequest invoice;
@@ -61,9 +60,6 @@ public class DTOWithParsedXML {
                 invoice.setIssueDate(LocalDate.parse(eElement.getElementsByTagName("DataWystawienia").item(0).getTextContent()));
                 invoice.setPaymentDate(LocalDate.parse(eElement.getElementsByTagName("TerminPlatnosci").item(0).getTextContent()));
                 invoice.setSaleDate(LocalDate.parse(eElement.getElementsByTagName("DataSprzedazy").item(0).getTextContent()));
-                invoice.setPaymentType("ELE");
-                invoice.setNumberingSeriesName("default");
-                invoice.setTemplateName("xxx");
                 invoice.setComments(eElement.getElementsByTagName("DodatkoweInformacje").item(0).getTextContent() + " " +
                         eElement.getElementsByTagName("ListPrzewozowy").item(0).getTextContent());
                 invoices.add(invoice);

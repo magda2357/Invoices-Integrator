@@ -56,7 +56,7 @@ public class InvoiceEntity {
     @Enumerated(STRING)
     private ReceiverSignatureType receiverSignatureType;
     private String comments;
-    private Integer visibleGiosNumberBdoNumber;
+    private String visibleGiosNumberBdoNumber;
     private String number;
 
     @OneToMany(
@@ -72,7 +72,6 @@ public class InvoiceEntity {
     private ClientEntity client = new ClientEntity();
 
     public InvoiceEntity(
-            Long id,
             BigDecimal payment,
             BigDecimal paymentOnDocument,
             TaxBase taxBase,
@@ -87,11 +86,8 @@ public class InvoiceEntity {
             String templateName,
             ReceiverSignatureType receiverSignatureType,
             String comments,
-            Integer visibleGiosNumberBdoNumber,
-            String number,
-            List<ItemEntity> items,
-            ClientEntity client) {
-        this.id = id;
+            String visibleGiosNumberBdoNumber,
+            String number) {
         this.payment = payment;
         this.paymentOnDocument = paymentOnDocument;
         this.taxBase = taxBase;
@@ -108,7 +104,5 @@ public class InvoiceEntity {
         this.comments = comments;
         this.visibleGiosNumberBdoNumber = visibleGiosNumberBdoNumber;
         this.number = number;
-        this.items = items;
-        this.client = client;
     }
 }
