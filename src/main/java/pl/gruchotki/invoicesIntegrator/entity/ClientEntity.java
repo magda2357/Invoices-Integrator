@@ -17,7 +17,7 @@ public class ClientEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-    private String number;
+//    private String number;
     private String buyerNip;
     private String name;
     private String nip;
@@ -26,11 +26,11 @@ public class ClientEntity {
     private String city;
 
     @OneToOne
-    @JoinColumn(name = "invoice_id")
+    @JoinColumn(name = "number")
     private InvoiceEntity invoice;
 
     public ClientEntity(Long id,
-                        String number,
+//                        String number,
                         String buyerNip,
                         String name,
                         String nip,
@@ -39,7 +39,7 @@ public class ClientEntity {
                         String city,
                         InvoiceEntity invoice) {
         this.id = id;
-        this.number = number;
+//        this.number = number;
         this.buyerNip = buyerNip;
         this.name = name;
         this.nip = nip;

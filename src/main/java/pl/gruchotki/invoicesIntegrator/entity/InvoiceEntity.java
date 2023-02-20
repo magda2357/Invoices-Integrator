@@ -31,7 +31,7 @@ public class InvoiceEntity {
     @Enumerated(STRING)
     private TaxBase taxBase;
 
-    @Max(28)
+//    @Max(28)
     private String bankingAccountNumber;
 //    >= data sprzedaży;
 //>= data wystawienia faktury wcześniejszej;
@@ -39,7 +39,7 @@ public class InvoiceEntity {
 
     private LocalDate issueDate;
 
-    @Max(50)
+//    @Max(50)
     private String issuePlace;
 
     @Enumerated(STRING)

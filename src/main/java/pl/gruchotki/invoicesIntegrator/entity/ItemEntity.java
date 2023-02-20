@@ -34,7 +34,7 @@ public class ItemEntity {
     private VatRateType vatRateType;
 
     @ManyToOne
-    @JoinColumn(name = "invoice_id")
+    @JoinColumn(name = "number")
     private InvoiceEntity invoice;
 
     public ItemEntity(Long id, Double vatRate, Integer quantity, BigDecimal unitPrice, String fullName, String unit, VatRateType vatRateType, InvoiceEntity invoice) {

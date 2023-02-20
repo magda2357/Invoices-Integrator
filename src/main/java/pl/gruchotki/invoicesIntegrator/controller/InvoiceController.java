@@ -64,7 +64,8 @@ public class InvoiceController {
         response.setDownloadUri("/downloadFile/" + filecode);
 
         File xmlFile = new File("Files-Upload/"+fileName);
-        invoiceService.saveInvoices(parseInvoicesXML(xmlFile));
+        List<InvoiceDtoRequest> invoices=parseInvoicesXML(xmlFile);
+        invoiceService.saveInvoices(invoices);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
 
